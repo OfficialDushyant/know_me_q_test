@@ -13,7 +13,7 @@ import './Landing.css';
 
 const Landing = () => {
 
-    const { login, setLogIn, setTest } = useTest();
+    const { login, setLogIn, setTest, tests, setUserInfo } = useTest();
     const formik = useFormik({
         initialValues: {
             name: "",
@@ -28,6 +28,7 @@ const Landing = () => {
 
         }),
         onSubmit: async (values) => {
+            console.log(values)
             try {
                 const response = await fetch(BASE_URL + "/Tests.json")
                 if(!response.ok) {
@@ -36,6 +37,7 @@ const Landing = () => {
                 const tests = await response.json();
                 setTest(tests);
                 setLogIn(true);
+                setUserInfo(values)
             } catch(error) {
                 console.log(error);
             }
@@ -62,9 +64,33 @@ const Landing = () => {
             {
                 (login)&&
                 <Card>
-                    <section className='login_form'>
-                        <div>Test 1</div>
-                        <div>Test 2</div>
+                    <section className='test_form'>
+                    {tests.map((test, index) => {
+                        return (
+                        <React.Fragment key={index}>
+                            <div className="test_select">
+                                <section className="test_info">
+                                    <span>
+                                        {test.title}
+                                    </span>
+                                    <span>
+                                        {test.description}
+                                    </span>
+                                </section>
+                                {
+                                    (!test.completed)&&
+                                    <button className="frm_submit_btn">Start</button>
+
+                                }
+                                {
+                                    (test.completed)&&
+                                    <button className="frm_submit_btn_done">Done</button>
+                                }
+                                
+                            </div>
+                        </React.Fragment>        
+                        )
+                    })}
                     </section>
                 </Card>
             }

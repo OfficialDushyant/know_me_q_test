@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 
 const TestContext = React.createContext({
     login: false,
+    userInfo: {},
     tests: [],
     currentTestQuestions: [],
     userAnswers: [],
@@ -10,7 +11,8 @@ const TestContext = React.createContext({
     setResult: () => {},
     setLogIn: () => {},
     setTest: () => {},
-    setCompletedTestResult: () => {}
+    setCompletedTestResult: () => {},
+    setUserInfo: () => {}
 });
 
 export function useTest() {
@@ -19,7 +21,8 @@ export function useTest() {
 
 export const TestContextProvider = (props) => {
     const [login, setIsLogin] = useState(false);
-    const [test, setTest] = useState([]);
+    const [userInfo, setUserInfo] = useState(null);
+    const [tests, setTest] = useState([]);
     const [currentTestQuestions, setCurrentTestQuestions] = useState([]);
     const [userAnswers, setUserAnswer] = useState([]);
     const [completedTestResult, setCompletedTestResult] = useState([0, 0]);
@@ -28,10 +31,11 @@ export const TestContextProvider = (props) => {
     <TestContext.Provider
         value={{
             login,
-            test,
+            tests,
             currentTestQuestions,
             userAnswers,
             completedTestResult,
+            userInfo,
             setLogIn: (loginStatus) => {
                 setIsLogin(loginStatus);
             },
@@ -46,6 +50,9 @@ export const TestContextProvider = (props) => {
             },
             setUserAnswer: (answers) => {
                 setUserAnswer(answers);
+            },
+            setUserInfo: (user) => {
+                setUserInfo(user)
             }
         }}
     >
