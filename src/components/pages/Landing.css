@@ -1,0 +1,54 @@
+@import "../../theme.css";
+
+.landing_page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+.login_form {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1em;
+}
+.frm_input_text, .frm_submit_btn {  
+    height:3.5em;
+    width:100%;
+    border-radius:3px;
+    box-sizing:border-box;
+    padding:.6em;
+    margin-bottom:2em;
+}
+.frm_input_text{
+    border:rgba(var(--dark-gray),.3) 2px solid;
+}
+.frm_input_text:focus{
+    outline:none;
+    border:rgb(var(--primary-color)) 2px solid;
+    color:rgb(var(--secondary-color));
+}
+
+.frm_submit_btn{
+    border: none;
+    background:rgb(var(--primary-color));
+    color:rgb(255,255,255);
+    font-weight:bold;
+    font-size: 12pt;
+    transition:background .4s;
+    cursor:pointer;
+}
+
+.frm_submit_btn:hover{
+    background:rgb(var(--secondary-color));
+}
+
+.test_title {
+    height:50px;
+    width:100%;
+    border-radius:3px;
+    border:rgba(var(--dark-gray),.3) 2px solid;
+    box-sizing:border-box;
+    padding:10px;
+    margin-bottom:30px;
+}
