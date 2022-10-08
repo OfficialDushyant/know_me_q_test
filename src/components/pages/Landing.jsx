@@ -1,13 +1,17 @@
-import React, {useState} from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+
 
 import Card from "../common/Card";
+import RadioButton from "../common/RadioButton";
+
+import { useTest } from '../../context/TestContext';
+
 import './Landing.css';
 
 
 const Landing = () => {
 
-    const [login, setLogin] = useState(false);
+    const { login, setLogIn } = useTest();
         return (
             <div className='landing_page'>
             {
@@ -34,10 +38,6 @@ const Landing = () => {
             }
             </div>
         );
-};
-
-Landing.propTypes = {
-   
 };
 
 export default Landing;
