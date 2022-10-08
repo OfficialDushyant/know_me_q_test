@@ -12,7 +12,7 @@
     flex-direction: row;
     column-gap: 1em;
 }
-.frm_input_text, .frm_submit_btn {  
+.frm_input_text, .frm_submit_btn, .frm_submit_btn_done {  
     height:3.5em;
     width:100%;
     border-radius:3px;
@@ -29,14 +29,19 @@
     color:rgb(var(--secondary-color));
 }
 
-.frm_submit_btn{
+.frm_submit_btn, .frm_submit_btn_done{
     border: none;
-    background:rgb(var(--primary-color));
     color:rgb(255,255,255);
     font-weight:bold;
     font-size: 12pt;
+}
+.frm_submit_btn{
+    background:rgb(var(--primary-color));
     transition:background .4s;
     cursor:pointer;
+}
+.frm_submit_btn_done{
+    background:rgb(var(--light-gray));
 }
 
 .frm_submit_btn:hover{
@@ -51,4 +56,15 @@
     box-sizing:border-box;
     padding:10px;
     margin-bottom:30px;
+}
+
+.test_form{
+    display: flex;
+    flex-direction: column;
+}
+.test_select{
+    display: flex;
+}
+.test_info {
+    min-width: 80%;
 }
