@@ -1,0 +1,22 @@
+.radio_btn_wrapper{
+    height:3.5em;
+    width:100%;
+    border-radius:3px;
+    border:rgba(var(--dark-gray),.3) 2px solid;
+    box-sizing:border-box;
+    margin-bottom: 2em;
+    padding: .6em;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    justify-content: left;
+    align-items: center;
+}
+
+[type="radio"]{
+    width: 1.5em;
+    height: 1.5em;
+}
+[type="radio"] + span {
+    display: block;
+}
