@@ -1,0 +1,1 @@
+export const BASE_URL = "https://knowmeq-test-default-rtdb.firebaseio.com"
